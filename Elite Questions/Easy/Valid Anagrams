@@ -1,0 +1,29 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        
+        #Create a dictionary which will store the frequency of each of character 
+        d={}  
+        
+        #iterate over all the characters in the string 's' 
+        for element in s:
+            if element in d:
+                #increse the frequency count by 1 if it is already there in the dictionary 'd'
+                d[element]+=1
+            else:
+                #initiate that element frequency by 1 in the 'd' if it is not there previously.
+                d[element]=1
+                
+        #iterate over all the characters in the string 't'
+        for element in t:
+            if element in d:
+        #decrease the frequency count by 1 so as to check the same frequency count of each character
+                d[element]-=1
+            else:
+                #if the element is not there in the dictionary that means that particular element is not there in the string 's' which tends the result to False
+                return False
+        for key,value in d.items():
+            if value!=0:
+            #Return False if the any of element value is not 0 after cancelling their each occurence from both side 's' and 't'
+                return False
+        return True
+       
