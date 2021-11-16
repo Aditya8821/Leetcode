@@ -1,0 +1,40 @@
+class Solution:
+    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        low=0
+        high=len(arr)-1
+        mid=0
+        result=[]
+        while low<=high:
+            mid=(low+high)//2
+            if arr[mid]==x:
+                break
+            elif x>arr[mid]:
+                low=mid+1
+            else:
+                high=mid-1
+        if mid==0:
+            low=mid
+            high=mid+1
+        else:
+            low=mid-1
+            high=mid
+        while(low>=0 and high<len(arr) and k>0):
+            if abs(arr[low]-x)<=abs(arr[high]-x):
+                result.append(arr[low])
+                low-=1
+                k-=1
+            else:
+                result.append(arr[high])
+                high+=1
+                k-=1
+        while(low>=0 and k>0):
+            result.append(arr[low])
+            low-=1
+            k-=1
+        while(high<len(arr) and k>0):
+            result.append(arr[high])
+            high+=1
+            k-=1
+        return sorted(result)
+            
+                
