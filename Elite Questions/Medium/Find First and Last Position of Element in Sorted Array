@@ -1,0 +1,33 @@
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        l=[]
+        ans=-1       
+        low=0
+        high=len(nums)-1
+        while(low<=high):
+            mid=int(low+(high-low)/2)
+            if nums[mid]==target:
+                ans=mid   
+                high=mid-1
+            elif nums[mid]<target:
+                low=mid+1
+            else:
+                high=mid-1
+        l.append(ans)
+        ans=-1       
+        low=0
+        high=len(nums)-1
+        while(low<=high):
+            mid=int(low+(high-low)/2)
+            if nums[mid]==target:
+                ans=mid
+                low=mid+1
+            elif nums[mid]<target:
+                low=mid+1
+            else:
+                high=mid-1
+        l.append(ans)
+        return l
+    
+#Here in line11 the occurence index of target is stored in answer and then set high before mid so as to check or find that if there is any other occurence before that mid which can be considered as first occurence of that num and if it is then that index will be updated in the answer.
+#Here in line23 the occurence index of target is stored in answer and then set low after mid so as to check or find that if there is any other occurence after that mid which can be considered as last occurence of that num and if it is then that index will be updated in the answer.
