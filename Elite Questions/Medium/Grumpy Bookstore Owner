@@ -1,0 +1,14 @@
+class Solution:
+    def maxSatisfied(self, customers: List[int], grumpy: List[int], minutes: int) -> int:
+        start=cur=maxcust=0   
+        for end in range(len(customers)):
+            if end-start+1>minutes:   #to maintain the size of window according to the minutes 
+                #if start index customers are counted in the curr window then remove them else remove 0
+                cur-= customers[start] if grumpy[start] else 0 
+                start+=1 #slide the starting point of window forward
+            #if seller is grumpy then count the number of customers at that time, keep in mind that we will count the number of customers which are there in the minutes when seller is not grumpy during the return time.
+            if grumpy[end]:
+                cur+=customers[end]
+                maxcust=max(maxcust,cur)
+        return maxcust+sum(customers[i] for i in range(len(customers)) if not grumpy[i])
+        
