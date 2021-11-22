@@ -1,0 +1,21 @@
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        curA,curB=headA,headB
+        lenA,lenB=0,0
+        while curA:
+            lenA+=1
+            curA=curA.next
+        while curB:
+            lenB+=1
+            curB=curB.next
+        curA,curB=headA,headB
+        if lenA>lenB:
+            for _ in range(lenA-lenB):
+                curA=curA.next
+        elif lenA<lenB:
+            for _ in range(lenB-lenA):
+                curB=curB.next
+        while curA!=curB:
+            curA=curA.next
+            curB=curB.next
+        return curA
