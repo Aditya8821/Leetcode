@@ -1,0 +1,7 @@
+class Solution:
+    def factorial (self, N):
+        f=1
+        while N:
+            f=f*N
+            N-=1
+        return f   
