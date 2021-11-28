@@ -1,0 +1,9 @@
+class Solution:
+    def armstrongNumber (ob, n):
+        temp=n
+        s=0
+        while (temp!=0):
+            r=temp%10
+            s=s+r**3
+            temp=temp//10
+        return "Yes" if (s==n) else "No"
