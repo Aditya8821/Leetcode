@@ -1,0 +1,16 @@
+class Solution:
+    def sortColors(self, arr: List[int]) -> None:
+        low=0
+        pointer=0
+        high=len(arr)-1
+        while(pointer<=high):
+            if arr[pointer]==0:
+                arr[low],arr[pointer]=arr[pointer],arr[low]
+                pointer+=1
+                low+=1
+            elif arr[pointer]==1:
+                pointer+=1
+            else:
+                arr[pointer],arr[high]=arr[high],arr[pointer]
+                high-=1
+        return arr
