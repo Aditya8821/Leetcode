@@ -1,0 +1,23 @@
+# I/p- 10, 19, 6, 3, 5
+# O/p- 2
+# Explain- swap 10 with 3 and swap 19 with 5.
+
+class Solution:
+    
+    #Function to find the minimum number of swaps required to sort the array.
+	def minSwaps(self, nums):
+		#Code here
+		d={}
+		n=len(nums)
+		for i in range(n):
+		    d[nums[i]]=i
+		sortnums=sorted(nums)
+		count=0
+		index=0
+		for i in range(n):
+		    if nums[i]!=sortnums[i]:
+		       count+=1
+		       index=d[sortnums[i]]
+		       d[nums[i]]=index
+		       nums[i],nums[index]=nums[index],nums[i]
+		return count
