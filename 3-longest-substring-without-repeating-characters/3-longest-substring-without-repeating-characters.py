@@ -1,24 +1,25 @@
 class Solution:
     def lengthOfLongestSubstring(self, string: str) -> int:
+        n=len(string)
         start=0
         end=0
-        longest_substring=0
-        frequency={}
-        while end<=len(string)-1:
-            frequency[string[end]]=frequency.get(string[end],0)+1
-            if len(frequency)==end-start+1:
-                longest_substring=max(longest_substring,end-start+1)
+        d={}
+        longest=0
+        while end<=n-1:
+            d[string[end]]=d.get(string[end],0)+1
+            if len(d)==end-start+1:
+                longest=max(longest,end-start+1)
                 end+=1
             else:
-                if frequency[string[start]]==1:
-                    del frequency[string[start]]
+                if d[string[start]]==1:
+                    del d[string[start]]
                     start+=1
                     end+=1
                 else:
-                    frequency[string[start]]-=1
+                    d[string[start]]-=1
                     start+=1
                     end+=1
-        return longest_substring
+        return longest
         
         '''n = len(string)
         s = 0 
