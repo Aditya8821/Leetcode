@@ -6,7 +6,6 @@ class Solution:
         while left <= right:
             mid = (left + right) // 2
             leftVal = nums[left]
-            start = nums[left]
             midVal = nums[mid]
             if midVal == target:
                 return mid
