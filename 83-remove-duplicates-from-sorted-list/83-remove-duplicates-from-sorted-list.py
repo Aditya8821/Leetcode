@@ -7,13 +7,13 @@ class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
         prev=None
         curr=head
-        s=set()
+        d={}
         while curr:
-            if curr.val in s:
+            if curr.val in d:
                 prev.next=curr.next
                 curr=curr.next
             else:
-                s.add(curr.val)
+                d[curr.val]=0
                 prev=curr
                 curr=curr.next
         return head
