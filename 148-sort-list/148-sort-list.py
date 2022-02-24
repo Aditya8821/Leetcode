@@ -9,7 +9,7 @@ class Solution:
             return None
         if head.next is None:
             return head
-        def merge(a,b):
+        def merge(a,b):   
             if not a:
                 return b
             if not b :
@@ -21,11 +21,14 @@ class Solution:
                 b.next=merge(a,b.next)
                 return b
         
+        
+        #here we are breaking the list in 2 parts
         prev,slow,fast=None,head,head
         while fast and fast.next:
             prev,slow,fast=slow,slow.next,fast.next.next
         prev.next=None
         
+        #here we are sorting those 2 lists separately and then merging them 
         first_half=self.sortList(head)
         second_half=self.sortList(slow)
         temp=merge(first_half,second_half)
