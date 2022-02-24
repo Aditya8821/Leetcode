@@ -4,5 +4,7 @@ class Solution:
             return max(nums)
         a,b=nums[0],max(nums[0],nums[1])
         for i in range(2,len(nums)):
-            a,b=b,max(nums[i]+a,b)
+            temp=a
+            a=b
+            b=max(nums[i]+temp,b)                                                                                                                                     
         return b
