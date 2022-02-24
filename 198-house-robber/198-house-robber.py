@@ -6,5 +6,5 @@ class Solution:
         for i in range(2,len(nums)):
             temp=a
             a=b
-            b=max(nums[i]+temp,b)                                                                                                                                     
+            b=max(nums[i]+temp,b)
         return b
