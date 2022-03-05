@@ -7,8 +7,7 @@ class Solution:
         dp=[0]*(len(freq))
         dp[1]=freq[1]
         for i in range(2,len(dp)):
-            dp[i]=max(dp[i-1],freq[i]+dp[i-2])
-        return dp[len(freq)-1]
-   
-
-       
+            dp[i]=max(dp[i-2]+freq[i],dp[i-1])
+        return dp[len(dp)-1]
+    
+            
