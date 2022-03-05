@@ -1,0 +1,15 @@
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        windowsum, windowstart=0,0
+        minlen=math.inf
+        for windowend in range(len(nums)):
+            windowsum+=nums[windowend]
+            while windowsum>=target:
+                minlen=min(minlen,windowend-windowstart+1)
+                windowsum-=nums[windowstart]
+                windowstart+=1
+        if minlen==math.inf:
+            return 0
+        return minlen
+        
+            
