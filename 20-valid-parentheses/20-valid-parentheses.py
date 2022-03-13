@@ -2,15 +2,21 @@ class Solution:
     def isValid(self, s: str) -> bool:
         stack=[]
         for i in range(len(s)):
-            len_stack=len(stack)
-            if len_stack==0:
+            if len(stack)==0:
                 stack.append(s[i])
-            elif s[i]==")" and stack[len_stack-1]=="(":
-                stack.pop(len_stack-1)
-            elif s[i]=="]" and stack[len_stack-1]=="[":
-                stack.pop(len_stack-1)
-            elif s[i]=="}" and stack[len_stack-1]=="{":
-                stack.pop(len_stack-1)
+            elif s[i]==")" and stack[-1]=="(":
+                stack.pop(-1)
+            elif s[i]=="]" and stack[-1]=="[":
+                stack.pop(-1)
+            elif s[i]=="}" and stack[-1]=="{":
+                stack.pop(-1)
             else:
                 stack.append(s[i])
-        return len(stack)==0
+        return True if not stack else False
+    
+    
+    
+    
+    
+    
+    
