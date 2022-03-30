@@ -10,3 +10,22 @@ class Solution:
             right=farthest
             ans+=1
         return ans
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
