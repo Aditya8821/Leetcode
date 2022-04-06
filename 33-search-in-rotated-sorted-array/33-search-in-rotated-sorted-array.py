@@ -22,3 +22,4 @@ class Solution:
                 # target is not in the current range
                 left = mid + 1
         return -1
+    
