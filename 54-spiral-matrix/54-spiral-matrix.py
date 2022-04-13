@@ -1,23 +1,21 @@
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         res=[]
-        rowbeg,rowend=0,len(matrix)-1
-        colbeg,colend=0,len(matrix[0])-1
-        while rowbeg<=rowend and colbeg<=colend:
-            for i in range(colbeg,colend+1):
-                res.append(matrix[rowbeg][i])
-            rowbeg+=1
-            for i in range(rowbeg,rowend+1):
-                res.append(matrix[i][colend])
-            colend-=1
-            if rowbeg<=rowend:
-                for i in range(colend,colbeg-1,-1):
-                    res.append(matrix[rowend][i])
-                rowend-=1
-            if colbeg<=colend:
-                for i in range(rowend,rowbeg-1,-1):
-                    res.append(matrix[i][colbeg])
-                colbeg+=1
+        rowb,rowe,colb,cole=0,len(matrix)-1,0,len(matrix[0])-1
+        while rowb<=rowe and colb<=cole:
+            for i in range(colb,cole+1):
+                res.append(matrix[rowb][i])
+            rowb+=1
+            for i in range(rowb,rowe+1):
+                res.append(matrix[i][cole])
+            cole-=1
+            if rowb<=rowe:
+                for i in range(cole,colb-1,-1):
+                    res.append(matrix[rowe][i])
+                rowe-=1
+            if colb<=cole:
+                for i in range(rowe,rowb-1,-1):
+                    res.append(matrix[i][colb])
+                colb+=1
         return res
-    
       
