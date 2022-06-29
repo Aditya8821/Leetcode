@@ -1,7 +1,8 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-        lastpos=len(nums)-1
+        lastposition=len(nums)-1
         for i in range(len(nums)-2,-1,-1):
-            if nums[i]+i>=lastpos:
-                lastpos=i
-        return lastpos==0
+            if nums[i]+i>=lastposition:
+                lastposition=i
+        return lastposition==0
+  
