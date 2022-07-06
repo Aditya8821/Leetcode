@@ -1,15 +1,17 @@
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
+        
+        #O(1) Space solution
         m=len(matrix)
         n=len(matrix[0])
-        isfirstcolzero=False
+        isfirstcolzero=False 
         isfirstrowzero=False
         for i in range(m):
             if matrix[i][0]==0:
-                isfirstcolzero=True
+                isfirstcolzero=True #set true if have any one zero in first col
         for i in range(n):
             if matrix[0][i]==0:
-                isfirstrowzero=True
+                isfirstrowzero=True #set true if have any one zero in first row
         for i in range(1,m):
             for j in range(1,n):
                 if matrix[i][j]==0:
