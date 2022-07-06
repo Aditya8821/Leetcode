@@ -6,11 +6,15 @@ class Solution:
                 j=i-1
                 break
             i-=1
+        if i==0:
+            nums.reverse()
+            return
         for i in range(len(nums)-1,-1,-1):
             if nums[i]>nums[j]:
                 nums[i],nums[j]=nums[j],nums[i]
                 nums[j+1:]=sorted(nums[j+1:])
                 return 
             
+        
         
     
