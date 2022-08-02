@@ -9,10 +9,10 @@ class Solution:
         if not root:
             return []
         queue=[[root]]
-        output=[]
+        ans=[]
         while queue:
-            level=queue.pop(0)
-            output.append([item.val for item in level])
+            level=queue.pop()
+            ans.append(item.val for item in level)
             nextlevel=[]
             for item in level:
                 if item.left:
@@ -21,4 +21,4 @@ class Solution:
                     nextlevel.append(item.right)
             if nextlevel:
                 queue.append(nextlevel)
-        return output
+        return ans
