@@ -5,13 +5,17 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def sol(self,root):
-        if not root: return 0
-        left_sum=max(self.sol(root.left),0) #in the case if left sum comes in -ve then we will not consider it
-        right_sum=max(self.sol(root.right),0) #same as upper left one
-        self.maxsum=max(self.maxsum,left_sum+right_sum+root.val)
-        return root.val+max(left_sum,right_sum)
+    def dfs(self,root):
+        if not root:
+            return 0
+        leftsum=max(self.dfs(root.left),0)
+        rightsum=max(self.dfs(root.right),0)
+        self.maxpath=max(self.maxpath,leftsum+rightsum+root.val)
+        return root.val+max(leftsum,rightsum)
+        
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
-        self.maxsum=float("-inf")
-        self.sol(root)
-        return self.maxsum
+        self.maxpath=float("-inf")
+        self.dfs(root)
+        return self.maxpath
+    
+   
