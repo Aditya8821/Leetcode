@@ -1,9 +1,16 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        d={}
-        for i in nums:
-            d[i]=d.get(i,0)+1
-        for k,v in d.items():
-            if v==1:
-                return k
-        
+        nums.sort()
+        size = len(nums)
+        if size>1:
+            if nums[0]!=nums[1]:
+                return nums[0]
+            if nums[size-1]!=nums[size-2]:
+                return nums[size-1]
+        else:
+            return nums[0]
+
+        for i in range(1, size, 3):
+            if nums[i]!=nums[i-1] and nums[i]==nums[i+1]:
+                return nums[i-1]
+         
