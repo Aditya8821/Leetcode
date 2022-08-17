@@ -1,17 +1,25 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        d={}
-        d[0]=1
-        s=0
-        count=0
-        for i in nums:
-            s+=i
-            if s-k in d:
-                count+=d[s-k]
-            if s in d:
-                d[s]+=1
-            else:
-                d[s]=1
-        return count
+        sums_to_index = collections.defaultdict(lambda: [])
+        sum_ = 0
+        ret = 0
+            
+            
+        for index, number in enumerate(nums):
+            sum_ += number
+            sums_to_index[sum_].append(index)
+            required_sum = sum_ - k
+            
+            
+            if (required_sum in sums_to_index):
+                indices = sums_to_index[required_sum]
+                last_index = bisect.bisect_left(indices, index)
+                ret += last_index
+            
+            
+            if (required_sum == 0):
+                ret += 1
+                
+        return ret
         
-        
+             
