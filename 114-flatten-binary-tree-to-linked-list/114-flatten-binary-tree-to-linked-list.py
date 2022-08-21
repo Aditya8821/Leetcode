@@ -11,11 +11,11 @@ class Solution:
         """
         Do not return anything, modify root in-place instead.
         """
-        if not root: return None
+        if not root:
+            return None
         self.flatten(root.right)
         self.flatten(root.left)
         root.right=self.prev
         root.left=None
         self.prev=root
-    
         
