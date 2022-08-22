@@ -6,9 +6,10 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        def valid(root,minlimit,maxlimit):
+        def help(root,minlimit,maxlimit):
             if not root: return True
             if root.val<=minlimit or root.val>=maxlimit:
                 return False
-            return valid(root.left,minlimit,root.val) and valid(root.right,root.val,maxlimit)
-        return valid(root,-2**31-1,2**31)
+            return help(root.left,minlimit,root.val) and help(root.right,root.val,maxlimit)
+        return help(root,-2**31-1,2**31)            
+        
