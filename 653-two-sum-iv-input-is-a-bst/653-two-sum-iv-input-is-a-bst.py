@@ -11,12 +11,12 @@
 class Solution:
     def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
         val={}
-        def help(node):
-            if not node:
-                return False
-            if k-node.val in val:
+        def help(root):
+            if not root: return False
+            if k-root.val in val:
                 return True
-            val[node.val]=True
-            return help(node.left) or help(node.right)
+            val[root.val]=True
+            return help(root.left) or help(root.right)
         return help(root)
-    
+        
+        
