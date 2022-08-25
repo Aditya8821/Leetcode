@@ -20,3 +20,4 @@ class Solution:
                 if curr.right:
                     q.extend([curr.right,curr.left])
         return root
+        
