@@ -4,6 +4,6 @@ class Solution:
         for num in nums:
             if visited[num]:
                 return num
-            else:
-                visited[num]=True
+            visited[num]=True
+        
         
