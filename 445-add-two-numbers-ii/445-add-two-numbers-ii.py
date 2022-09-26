@@ -26,4 +26,3 @@ class Solution:
             curr.next=nxt
             nxt=curr
         return curr
-        
