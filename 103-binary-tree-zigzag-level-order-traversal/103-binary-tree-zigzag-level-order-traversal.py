@@ -13,23 +13,23 @@ class Solution:
         while queue:
             level=queue.pop()
             res.append(item.val for item in level)
-            nextlevel=[]
+            nxtlevel=[]
             if flag==0:
-                for item in level[::-1]:
-                    if item.right:
-                        nextlevel.append(item.right)
-                    if item.left:
-                        nextlevel.append(item.left)
-                    flag=1
+                for node in level[::-1]:
+                    if node.right:
+                        nxtlevel.append(node.right)
+                    if node.left:
+                        nxtlevel.append(node.left)
+                flag=1
             else:
-                for item in level[::-1]:
-                    if item.left:
-                        nextlevel.append(item.left)
-                    if item.right:
-                        nextlevel.append(item.right)
-                    flag=0
-            if nextlevel:
-                queue.append(nextlevel)
+                for node in level[::-1]:
+                    if node.left:
+                        nxtlevel.append(node.left)
+                    if node.right:
+                        nxtlevel.append(node.right)
+                flag=0
+            if nxtlevel:
+                queue.append(nxtlevel)
         return res
         
         
