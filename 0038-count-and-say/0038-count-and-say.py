@@ -17,5 +17,5 @@ class Solution:
                     t+=res[j-1]
                     c=1
             res=t
-        return t
+        return res
             
